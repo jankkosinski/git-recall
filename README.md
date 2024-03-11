@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Git Recall
 
 Project [Trip Witm Me](https://github.com/jankkosinski/trip-with-me) was added to this repo just for GIT learning purposes.
@@ -37,3 +38,13 @@ You may also see any lint errors in the console.
 <span style="color: orange"> Some packages can be deprecated. Do not worry about it because project should run propery. This repo has been created only for GIT learning purposes :) </span>
 
 <img src="./assets/corgi.png" alt="drawing" width="300"/>
+=======
+GIT RECALL Janek
+Bad boys bad boys
+
+whatcha gonna do?
+whatcha gonna do?
+
+<img src="./assets/corgi.png" alt="drawing" width="300"/>
+hihihi
+>>>>>>> ea51a70 (bad corgi)
