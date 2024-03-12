@@ -1,0 +1,42 @@
+@use '../utilities';
+.reviews {
+  margin: 5rem 2rem;
+}
+
+.review {
+  width: 100%;
+  padding: 1.5rem;
+  &__content {
+    min-height: 22rem;
+    background: utilities.$lightGrey;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    &__heading {
+      @include utilities.align(flex, space-between, center, 5.5rem);
+      &__image {
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        object-fit: cover;
+      }
+      &__rating {
+        margin-right: 1rem;
+        color: utilities.$primary;
+        opacity: 0.8;
+      }
+    }
+    &__info {
+      margin: 1rem 0;
+      &__name {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        border-bottom: 1px utilities.$primary solid;
+      }
+      &__comment {
+        font-size: 1rem;
+      }
+    }
+  }
+}

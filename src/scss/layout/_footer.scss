@@ -1,0 +1,98 @@
+@use '../utilities';
+
+.footer {
+  position: relative;
+  width: 100%;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  padding: 5rem 5rem;
+  &__heading {
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(to right, utilities.$primary, transparent);
+      opacity: 0.5;
+      content: '';
+    }
+    &__logo {
+      max-height: 10rem;
+    }
+    &__text {
+      color: utilities.$grey;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+    }
+  }
+  &__copyrights {
+    @include utilities.align(flex, center, center, null);
+    width: 100%;
+    margin-top: 5rem;
+    padding-bottom: 4rem;
+    position: relative;
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(to right, transparent, utilities.$secondary);
+      opacity: 0.5;
+      content: '';
+    }
+    &__text {
+      color: transparent;
+      background: linear-gradient(
+        to right,
+        utilities.$primary,
+        utilities.$secondary
+      );
+      background-clip: text;
+      a {
+        color: transparent;
+        text-decoration: none;
+        transition: 0.3s;
+        &:hover {
+          color: utilities.$black;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  &__links {
+    margin-top: 5rem;
+    padding: 0 2rem;
+    &__header {
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      letter-spacing: 0.2rem;
+    }
+    &__body {
+      @include utilities.flex(
+        flex,
+        column,
+        0.5rem,
+        flex-start,
+        flex-start,
+        null
+      );
+      padding: 1rem 0;
+    }
+  }
+  &__link {
+    a {
+      @include utilities.flex(flex, row, 0.2rem, center, flex-start, null);
+      font-size: 1.2rem;
+      text-decoration: none;
+      text-transform: capitalize;
+      color: utilities.$grey;
+      transition: 0.5s;
+      &:hover {
+        color: utilities.$primary;
+        opacity: 0.8;
+      }
+    }
+  }
+}

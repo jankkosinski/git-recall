@@ -1,0 +1,87 @@
+@use '../utilities';
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pr {
+  position: relative;
+}
+
+.collapse-box {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 0.5rem;
+  background-color: utilities.$white;
+  border-radius: 1rem;
+  opacity: 0.8;
+  &__heading {
+    @include utilities.align(flex, flex-start, center, null);
+    font-size: 2rem;
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: 0.3s;
+    &--active {
+      color: utilities.$primary;
+    }
+    &:hover {
+      color: utilities.$primary;
+      opacity: 0.8;
+    }
+  }
+  &__body {
+    position: relative;
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+    padding: 0.5rem 3.5rem;
+    &--opened {
+      overflow: hidden;
+      max-height: 150px;
+      @include utilities.animation-collapse(
+        collapse-open,
+        0.3s,
+        ease-out,
+        0,
+        150px
+      );
+    }
+    &--closed {
+      overflow: hidden;
+      max-height: 0;
+      @include utilities.animation-collapse(
+        collapse-close,
+        0.3s,
+        ease,
+        150px,
+        0
+      );
+    }
+  }
+}
+
+.simple-section {
+  margin: 2rem 0;
+  padding: 2rem 5rem;
+  &__body {
+    @include utilities.flex(flex, column, 0.2rem, center, flex-start, null);
+    height: 100%;
+    padding: 2rem 4rem;
+    &__text {
+      position: relative;
+      color: utilities.$grey;
+      font-size: 1.4rem;
+      &:before {
+        position: absolute;
+        top: -1rem;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(to right, utilities.$primary, transparent);
+        opacity: 0.5;
+        content: '';
+      }
+    }
+  }
+}

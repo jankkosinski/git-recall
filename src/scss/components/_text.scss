@@ -1,0 +1,40 @@
+@use '../utilities';
+
+.text {
+  &__header {
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    font-weight: 400;
+    background: linear-gradient(
+      to right,
+      utilities.$primary,
+      utilities.$secondary
+    );
+    background-clip: text;
+    color: transparent;
+  }
+  &__subheader {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    background: linear-gradient(
+      to right,
+      utilities.$primary,
+      utilities.$secondary
+    );
+    background-clip: text;
+    color: transparent;
+  }
+  &__uppercase {
+    text-transform: uppercase;
+    &--first-letter {
+      text-transform: lowercase;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__lowercase {
+    text-transform: lowercase;
+  }
+}

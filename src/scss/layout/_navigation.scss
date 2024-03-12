@@ -1,0 +1,73 @@
+@use '../utilities';
+.nav {
+  @include utilities.position(fixed, 0, 0, 0, 0, 100%, 100%);
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 5;
+  transition: all 0.3s linear;
+  &--closed {
+    opacity: 0;
+    z-index: -1;
+  }
+  &__content {
+    @include utilities.position(fixed, 0, null, 0, 0, null, 100%);
+    @include utilities.flex(flex, column, 1.5rem, center, center, null);
+    background-color: utilities.$white;
+    transition: all 0.2s ease-in;
+    width: 20%;
+    @include utilities.responsive(large) {
+      width: 25%;
+    }
+    @include utilities.responsive(medium) {
+      width: 30%;
+    }
+    @include utilities.responsive(small) {
+      width: 40%;
+    }
+    @include utilities.responsive(xsmall) {
+      width: 100%;
+    }
+    &--closed {
+      transform: translateX(100%);
+    }
+    &__link {
+      display: block;
+      @include utilities.position(relative, null, null, null, null, 100%, auto);
+      padding: 1.5rem;
+      text-decoration: none;
+      text-align: center;
+      color: utilities.$black;
+      font-size: 1.6rem;
+      font-weight: 400;
+      transition: 0.5s;
+      &:before {
+        @include utilities.position(absolute, 0, 0, 0, 0, 100%, 100%);
+        content: '';
+        background: linear-gradient(
+          to right,
+          utilities.$primary,
+          utilities.$secondary
+        );
+        z-index: -1;
+        transform: scale(0);
+        transition: 0.5s;
+      }
+      &:hover {
+        color: utilities.$white;
+      }
+      &:hover:before {
+        transform: scale(1);
+      }
+    }
+    .active {
+      color: utilities.$primary;
+      &:hover {
+        color: utilities.$white;
+      }
+    }
+  }
+  &__toggle {
+    @include utilities.position(fixed, 0, null, null, 0, null, null);
+    z-index: 10;
+    padding: 1.5rem;
+  }
+}

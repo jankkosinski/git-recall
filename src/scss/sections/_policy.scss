@@ -1,0 +1,37 @@
+@use '../utilities';
+.policy {
+  margin: 5rem 0;
+  background-color: utilities.$lightGrey;
+  padding: 13rem 5rem;
+  transform: skewY(-2deg);
+  &__content {
+    transform: skewY(2deg);
+    &__heading {
+      padding: 1.5rem;
+      &--title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 4rem;
+        background: linear-gradient(
+          30deg,
+          utilities.$primary 40%,
+          utilities.$black 40%
+        );
+        text-transform: capitalize;
+        color: transparent;
+        background-clip: text;
+      }
+      &--subtitle {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 2rem;
+        color: utilities.$grey;
+      }
+    }
+    &__body {
+      margin-top: 0.5rem;
+      padding: 1.5rem 0;
+    }
+  }
+}

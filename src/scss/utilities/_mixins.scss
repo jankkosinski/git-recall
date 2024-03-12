@@ -1,0 +1,144 @@
+@use './breakpoints' as *;
+@mixin position($position, $top, $left, $bottom, $right, $width, $height) {
+  position: $position;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+  width: $width;
+  height: $height;
+}
+@mixin align($display, $justify, $align, $height) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  height: $height;
+}
+@mixin flex($display, $direction, $gap, $justify, $align, $height) {
+  @include align($display, $justify, $align, $height);
+  flex-direction: $direction;
+  gap: $gap;
+}
+@mixin button(
+  $color_primary,
+  $color_secondary,
+  $text_color,
+  $height,
+  $width,
+  $font_size,
+  $bfr,
+  $padding_vertical,
+  $padding_horizontal
+) {
+  background: linear-gradient(to right, $color_primary, $color_secondary);
+  color: $text_color;
+  text-decoration: none;
+  height: $height;
+  width: $width;
+  display: inline-block;
+  font-size: $font_size;
+  font-weight: 400;
+  border-radius: $bfr;
+  padding: $padding_vertical $padding_horizontal;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+@mixin button-text(
+  $text_color,
+  $font_size,
+  $padding_vertical,
+  $padding_horizontal
+) {
+  background: transparent;
+  color: $text_color;
+  text-decoration: none;
+  display: inline-block;
+  font-size: $font_size;
+  font-weight: 400;
+  padding: $padding_vertical $padding_horizontal;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+@mixin animation-fade-in($name, $duration, $function) {
+  animation: $name $duration $function;
+  @keyframes #{$name} {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+@mixin animation-collapse(
+  $name,
+  $duration,
+  $function,
+  $height_from,
+  $height_to
+) {
+  animation: $name $duration $function;
+  @keyframes #{$name} {
+    0% {
+      max-height: $height_from;
+    }
+    100% {
+      max-height: $height_to;
+    }
+  }
+}
+@mixin animation-translate(
+  $name,
+  $duration,
+  $function,
+  $translateX,
+  $translateY
+) {
+  animation: $name $duration $function;
+  @keyframes #{$name} {
+    0% {
+      opacity: 0;
+      transform: translateX($translateX);
+      transform: translateY($translateY);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0rem);
+      transform: translateY(0rem);
+    }
+  }
+}
+@mixin responsive($breakpoint) {
+  @if $breakpoint == large {
+    @media (max-width: $lg) {
+      @content;
+    }
+  }
+  @if $breakpoint == medium {
+    @media (max-width: $md) {
+      @content;
+    }
+  }
+  @if $breakpoint == small {
+    @media (max-width: $sm) {
+      @content;
+    }
+  }
+  @if $breakpoint == xsmall {
+    @media (max-width: $xsm) {
+      @content;
+    }
+  }
+}

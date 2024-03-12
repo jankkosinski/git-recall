@@ -1,0 +1,15 @@
+@use '../utilities';
+.cities {
+  margin: 5rem 0;
+  background-color: utilities.$lightGrey;
+  padding: 13rem 5rem;
+  transform: skewY(-2deg);
+  &__content {
+    transform: skewY(2deg);
+    &__empty {
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+}
