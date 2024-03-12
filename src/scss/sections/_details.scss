@@ -1,0 +1,53 @@
+@use '../utilities';
+.details {
+  margin: 10rem 5rem;
+  &__description {
+    position: relative;
+    margin-bottom: 4rem;
+    font-size: 1.8rem;
+    padding: 2rem;
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0.2rem;
+      background: linear-gradient(
+        to right,
+        utilities.$primary,
+        utilities.$white
+      );
+      background-clip: padding-box;
+      border-radius: 1rem;
+      content: '';
+    }
+    &:after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0.2rem;
+      background: linear-gradient(
+        to right,
+        utilities.$white,
+        utilities.$secondary
+      );
+      background-clip: padding-box;
+      border-radius: 1rem;
+      content: '';
+    }
+  }
+  &__basics {
+    @include utilities.align(flex, space-between, center, null);
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-bottom: 1px dotted utilities.$grey;
+    &__title {
+      font-weight: 700;
+      text-align: start;
+    }
+    &__body {
+      text-align: end;
+    }
+  }
+}

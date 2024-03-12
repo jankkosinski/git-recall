@@ -1,0 +1,43 @@
+@use '../utilities';
+.city-lightbox {
+  @include utilities.position(fixed, 0, 0, 0, 0, 100%, 100%);
+  @include utilities.align(flex, center, center, null);
+  @include utilities.animation-fade-in(lightbox-fade-in, 0.2s, linear);
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 10;
+  &__content {
+    max-width: 100%;
+    background-color: utilities.$white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    @include utilities.animation-translate(
+      lightboxAnimation,
+      0.3s,
+      linear,
+      null,
+      -2rem
+    );
+    &__heading {
+      @include utilities.flex(flex, row, null, space-between, top, null);
+      margin-bottom: 1rem;
+      padding: 0 0.5rem;
+      &__title {
+        font-size: 2rem;
+        font-weight: 400;
+        background: linear-gradient(
+          to right,
+          utilities.$primary,
+          utilities.$secondary
+        );
+        background-clip: text;
+        color: transparent;
+      }
+    }
+    &__image {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 1.5rem;
+    }
+  }
+}

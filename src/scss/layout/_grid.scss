@@ -1,0 +1,41 @@
+@use '../utilities';
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+@for $num from 1 to 12 {
+  .col-#{$num} {
+    width: calc(100% / 12) * $num;
+    @if $num == 8 {
+      @include utilities.responsive(medium) {
+        width: 100%;
+      }
+    }
+    @if $num == 6 {
+      @include utilities.responsive(small) {
+        width: 100%;
+      }
+    }
+    @if $num == 4 {
+      @include utilities.responsive(medium) {
+        width: 50%;
+      }
+      @include utilities.responsive(xsmall) {
+        width: 100%;
+      }
+    }
+    @if $num == 3 {
+      @include utilities.responsive(medium) {
+        width: calc(100% / 3);
+      }
+      @include utilities.responsive(small) {
+        width: 50%;
+      }
+      @include utilities.responsive(xsmall) {
+        width: 100%;
+      }
+    }
+  }
+}

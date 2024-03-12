@@ -1,0 +1,11 @@
+@use '../utilities';
+
+.contact_form {
+  @include utilities.align(flex, center, center, null);
+  width: 100%;
+  padding: 2rem 2rem;
+  &__body {
+    width: 100%;
+    padding-top: 5rem;
+  }
+}

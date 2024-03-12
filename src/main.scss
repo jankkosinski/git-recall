@@ -1,0 +1,22 @@
+@use 'scss/base/base';
+@use 'scss/core/animations';
+// import layouts
+@use 'scss/layout/header';
+@use 'scss/layout/navigation';
+@use 'scss/layout/grid';
+@use 'scss/layout/footer';
+// import sections
+@use 'scss/sections/destinations';
+@use 'scss/sections/details';
+@use 'scss/sections/cities';
+@use 'scss/sections/policy';
+@use 'scss/sections/reviews';
+@use 'scss/sections/company_informations';
+@use 'scss/sections/contact';
+// import components
+@use 'scss/components/containers';
+@use 'scss/components/buttons';
+@use 'scss/components/modals';
+@use 'scss/components//forms';
+@use 'scss/components/text';
+@use 'scss/components/lightbox';

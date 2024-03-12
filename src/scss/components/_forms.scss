@@ -1,0 +1,51 @@
+@use '../utilities';
+.fade-form {
+  @include utilities.animation-fade-in(form-fade-in, 0.5s, linear);
+}
+.control {
+  width: 100%;
+  margin: 0.4rem;
+  &__full {
+    width: 100%;
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    outline: none;
+    font-size: 1.4rem;
+    border: 1px solid utilities.$grey;
+    padding: 0.2rem 2rem;
+    &::placeholder {
+      color: utilities.$grey;
+    }
+  }
+  &__textarea {
+    display: block;
+    width: 100%;
+    min-height: 10rem;
+    resize: none;
+    border-radius: 1rem;
+    outline: none;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    border: 1px solid utilities.$grey;
+    padding: 0.2rem 2rem;
+    &::placeholder {
+      color: utilities.$grey;
+      font-family: sans-serif;
+      font-size: 1.4rem;
+    }
+  }
+  &__link {
+    @include utilities.align(flex, center, center, null);
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: utilities.$grey;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      color: utilities.$black;
+    }
+  }
+}

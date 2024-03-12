@@ -1,0 +1,91 @@
+@use '../utilities';
+.destinations {
+  margin: 2rem 0;
+  &__heading {
+    padding: 5rem 5rem;
+    &__body {
+      width: 100%;
+      font-size: 1.8rem;
+      color: utilities.$black;
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        bottom: -0.5rem;
+        left: 0;
+        width: 40%;
+        height: 0.2rem;
+        background: utilities.$primary;
+      }
+    }
+  }
+  &__description {
+    padding: 5rem 5rem;
+    &__body {
+      width: 100%;
+      font-size: 1.5rem;
+      color: utilities.$grey;
+    }
+  }
+}
+
+.destination {
+  padding: 1.5rem;
+  &__card {
+    position: relative;
+    width: 100%;
+    height: 35rem;
+    overflow: hidden;
+    &--maximize {
+      transition: 0.5s;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.5;
+        transform: scale(1.05);
+      }
+    }
+    &__img {
+      border-radius: 1.5rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      image-rendering: pixelated;
+    }
+    &__layer {
+      @include utilities.position(absolute, 0, 0, 0, 0, 100%, 100%);
+      @include utilities.align(flex, center, flex-end, null);
+      background: linear-gradient(to bottom, transparent 50%, utilities.$black);
+      border-radius: 1.5rem;
+      &__content {
+        @include utilities.flex(flex, row, 0.5rem, center, center, null);
+        padding: 1rem 0;
+        color: utilities.$grey;
+        font-size: 1.5rem;
+      }
+    }
+    &__explore {
+      @include utilities.position(absolute, 0, 0, 0, 0, 100%, 100%);
+      @include utilities.flex(flex, column, null, flex-start, center, null);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      transform: translateY(-5rem);
+      transition: all 0.5s;
+      &:hover {
+        transform: translateY(0);
+        &:after {
+          transform: translateY(-5rem);
+          opacity: 0;
+        }
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        top: 5.5rem;
+        width: 40%;
+        height: 0.2rem;
+        background: utilities.$primary;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

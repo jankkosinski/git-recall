@@ -1,0 +1,76 @@
+@use '../utilities';
+.header {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  overflow: hidden;
+  &__logo {
+    @include utilities.position(absolute, 3rem, 2rem, null, null, 180px, auto);
+    @include utilities.responsive(medium) {
+      top: 2rem;
+      left: 3rem;
+      width: 150px;
+    }
+    @include utilities.responsive(xsmall) {
+      top: 1rem;
+      left: 2rem;
+      width: 100px;
+    }
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.5;
+  }
+  &__video {
+    @include utilities.position(absolute, 0, 0, null, null, 100%, 100%);
+    z-index: -1;
+    object-fit: cover;
+    image-rendering: pixelated;
+  }
+  &__contents {
+    @include utilities.position(absolute, 0, 0, null, null, 100%, 100%);
+    background-color: rgb(0, 0, 0, 0.4);
+    &__text {
+      @include utilities.align(flex, center, center, 100vh);
+      &__child {
+        padding: 0 2rem;
+        &__h1 {
+          color: utilities.$white;
+          text-transform: uppercase;
+          font-weight: 900;
+          font-size: 4.2rem;
+          line-height: 2.8rem;
+          @include utilities.animation-translate(
+            heading-title,
+            1s,
+            ease-in,
+            null,
+            -8rem
+          );
+        }
+        &__p {
+          margin-top: 0.8rem;
+          color: utilities.$white;
+          font-size: 1.5rem;
+          @include utilities.animation-translate(
+            heading-text,
+            1s,
+            ease-out,
+            -10rem,
+            null
+          );
+        }
+        &__link {
+          margin-top: 0.8rem;
+          @include utilities.animation-translate(
+            heading-button,
+            1s,
+            ease-out,
+            -8rem,
+            null
+          );
+        }
+      }
+    }
+  }
+}
